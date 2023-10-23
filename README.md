@@ -1,4 +1,4 @@
 # RPR-Vjezbe
 Ivona Jozić 19357
 
-lv1-z1
+lv1-z2
