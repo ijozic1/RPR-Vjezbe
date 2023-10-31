@@ -7,19 +7,18 @@ import java.util.Scanner;
 import static rpr.lab2.z1.Faktorijel.faktoriel;
 import static rpr.lab2.z1.Sinus.sinus;
 
-public class Main {
-    public static void main(String[] args) {
-        System.out.println("Unesite broj za koji zelite izracunati sinus i faktorijel: ");
-        Scanner ulaz=new Scanner(System.in);
-        double broj=0;
-        broj=ulaz.nextDouble();
-
-        try {
-            System.out.println("Faktorijel broja " + broj + " je " + faktoriel((long)broj));
+import java.lang.Math;
+public class Main
+{
+    public static void main( String[] args ) {
+        if(args.length==0) {
+            System.out.println("Nisu proslijeđeni konzolni parametri!");
+            return;
         }
-        catch(Exception e){
-            System.out.println("Greska: " + e.getMessage());
-        }
-        System.out.println("Sinus broja " + broj + " je " +sinus(broj));
+        double doubleVrijednost = Double.parseDouble(args[0]);
+        int integerVrijednost = (int) doubleVrijednost;
+        System.out.println("Faktorijel zadanog broja iznosi: " + Faktorijel.faktoriel(integerVrijednost) + "\n");
+        System.out.println("Sinus zadanog broja iznosi: " + Sinus.sinus(doubleVrijednost) + "\n");
+        System.out.println("Sinus (bibliotecki) iznosi: " + Math.sin(doubleVrijednost) + "\n");
     }
 }
