@@ -1,0 +1,97 @@
+package rpr.etf.unsa.ba.lab3.z1;
+import java.util.Scanner;
+import java.util.Set;
+
+public class Program {
+    public static void main(String[] args) {
+        Imenik imenik = new Imenik();
+        Scanner scanner = new Scanner(System.in);
+
+        while (true) {
+            System.out.println("Odaberite opciju:");
+            System.out.println("1. Dodaj osobu u imenik");
+            System.out.println("2. Pretraži osobu po imenu");
+            System.out.println("3. Pretraži osobu po broju");
+            System.out.println("4. Izađi iz programa");
+
+            int opcija = scanner.nextInt();
+            scanner.nextLine(); // Prazni unos
+
+            try {
+                switch (opcija) {
+                    case 1:
+                        System.out.println("Unesite ime osobe:");
+                        String ime = scanner.nextLine();
+                        System.out.println("Odaberite vrstu broja:");
+                        System.out.println("1. Fiksni broj");
+                        System.out.println("2. Mobilni broj");
+                        System.out.println("3. Međunarodni broj");
+                        int vrstaBroja = scanner.nextInt();
+                        scanner.nextLine(); // Prazni unos
+
+                        TelefonskiBroj telefonskiBroj;
+
+                        switch (vrstaBroja) {
+                            case 1:
+                                System.out.println("Unesite grad (SARAJEVO, TUZLA, ZENICA...):");
+                                Grad grad = Grad.valueOf(scanner.nextLine().toUpperCase());
+                                System.out.println("Unesite broj (npr. '123-456'):");
+                                String broj = scanner.nextLine();
+                                telefonskiBroj = new FiksniBroj(grad, broj);
+                                break;
+
+                            case 2:
+                                System.out.println("Unesite mobilnu mrežu (60-67):");
+                                int mobilnaMreza = scanner.nextInt();
+                                scanner.nextLine(); // Prazni unos
+                                System.out.println("Unesite broj (npr. '987-654'):");
+                                broj = scanner.nextLine();
+                                telefonskiBroj = new MobilniBroj(mobilnaMreza, broj);
+                                break;
+
+                            case 3:
+                                System.out.println("Unesite državni pozivni broj (npr. '+387'):");
+                                String drzava = scanner.nextLine();
+                                System.out.println("Unesite broj (npr. '123-456'):");
+                                broj = scanner.nextLine();
+                                telefonskiBroj = new MedunarodniBroj(drzava, broj);
+                                break;
+
+                            default:
+                                System.out.println("Nevažeća opcija. Molimo odaberite ponovo.");
+                                continue;
+                        }
+
+                        imenik.dodaj(ime, telefonskiBroj);
+                        System.out.println("Osoba dodana u imenik.");
+                        break;
+
+                    case 2:
+                        System.out.println("Unesite ime osobe koju želite pretražiti:");
+                        String imeZaPretragu = scanner.nextLine();
+                        String brojOsobe = imenik.dajBroj(imeZaPretragu);
+                        System.out.println("Telefonski broj osobe: " + brojOsobe);
+                        break;
+
+                    case 3:
+                        System.out.println("Unesite broj osobe koju želite pretražiti:");
+                        String brojZaPretragu = scanner.nextLine();
+                        String imeOsobe = imenik.dajIme(new MedunarodniBroj("+387", brojZaPretragu)); // Promijenite vrstu broja prema vašim potrebama
+                        System.out.println("Ime osobe: " + imeOsobe);
+                        break;
+
+                    case 4:
+                        System.out.println("Izlaz iz programa.");
+                        scanner.close();
+                        System.exit(0);
+                        break;
+
+                    default:
+                        System.out.println("Nevažeća opcija. Molimo odaberite ponovo.");
+                }
+            } catch (IllegalArgumentException e) {
+                System.out.println("Unijeli ste nevažeće podatke.");
+            }
+        }
+    }
+}
