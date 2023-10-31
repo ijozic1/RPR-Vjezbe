@@ -87,7 +87,7 @@ public class Program {
                     case 3:
                         System.out.println("Unesite broj osobe koju želite pretražiti:");
                         String brojZaPretragu = ulaz.nextLine();
-                        String imeOsobe = imenik.dajIme(new MedunarodniBroj("+387", brojZaPretragu)); // Promijenite vrstu broja prema vašim potrebama
+                        String imeOsobe = imenik.dajIme(new MedunarodniBroj("+387", brojZaPretragu));
                         System.out.println("Ime osobe: " + imeOsobe);
                         break;
 
