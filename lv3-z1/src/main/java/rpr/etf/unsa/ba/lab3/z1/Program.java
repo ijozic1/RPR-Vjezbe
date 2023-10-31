@@ -5,7 +5,7 @@ import java.util.Set;
 public class Program {
     public static void main(String[] args) {
         Imenik imenik = new Imenik();
-        Scanner scanner = new Scanner(System.in);
+        Scanner ulaz = new Scanner(System.in);
 
         while (true) {
             System.out.println("Odaberite opciju:");
@@ -14,46 +14,57 @@ public class Program {
             System.out.println("3. Pretraži osobu po broju");
             System.out.println("4. Izađi iz programa");
 
-            int opcija = scanner.nextInt();
-            scanner.nextLine(); // Prazni unos
+            int opcija = ulaz.nextInt();
+            ulaz.nextLine(); // Prazni unos
 
             try {
                 switch (opcija) {
                     case 1:
                         System.out.println("Unesite ime osobe:");
-                        String ime = scanner.nextLine();
+                        String ime = ulaz.nextLine();
                         System.out.println("Odaberite vrstu broja:");
                         System.out.println("1. Fiksni broj");
                         System.out.println("2. Mobilni broj");
                         System.out.println("3. Međunarodni broj");
-                        int vrstaBroja = scanner.nextInt();
-                        scanner.nextLine(); // Prazni unos
+                        int vrstaBroja = ulaz.nextInt();
+                        ulaz.nextLine(); // Prazni unos
 
                         TelefonskiBroj telefonskiBroj;
 
                         switch (vrstaBroja) {
                             case 1:
                                 System.out.println("Unesite grad (SARAJEVO, TUZLA, ZENICA...):");
-                                Grad grad = Grad.valueOf(scanner.nextLine().toUpperCase());
+                                Grad grad = Grad.valueOf(ulaz.nextLine().toUpperCase());
                                 System.out.println("Unesite broj (npr. '123-456'):");
-                                String broj = scanner.nextLine();
+                                String broj = ulaz.nextLine();
                                 telefonskiBroj = new FiksniBroj(grad, broj);
                                 break;
 
                             case 2:
                                 System.out.println("Unesite mobilnu mrežu (60-67):");
-                                int mobilnaMreza = scanner.nextInt();
-                                scanner.nextLine(); // Prazni unos
+                                int mobilnaMreza = ulaz.nextInt();
+                                ulaz.nextLine(); // Prazni unos
                                 System.out.println("Unesite broj (npr. '987-654'):");
-                                broj = scanner.nextLine();
-                                telefonskiBroj = new MobilniBroj(mobilnaMreza, broj);
+                                broj = ulaz.nextLine();
+                                try {
+                                    telefonskiBroj = new MobilniBroj(mobilnaMreza, broj);
+                                }
+                                catch(IllegalArgumentException e){
+                                    System.out.println("Doslo je do greske: "+e.getMessage());
+                                    System.out.println("Unesite mobilnu mrežu (60-67):");
+                                    mobilnaMreza = ulaz.nextInt();
+                                    ulaz.nextLine(); // Prazni unos
+                                    System.out.println("Unesite broj (npr. '987-654'):");
+                                    broj = ulaz.nextLine();
+                                    telefonskiBroj = new MobilniBroj(mobilnaMreza, broj);
+                                }
                                 break;
 
                             case 3:
                                 System.out.println("Unesite državni pozivni broj (npr. '+387'):");
-                                String drzava = scanner.nextLine();
+                                String drzava = ulaz.nextLine();
                                 System.out.println("Unesite broj (npr. '123-456'):");
-                                broj = scanner.nextLine();
+                                broj = ulaz.nextLine();
                                 telefonskiBroj = new MedunarodniBroj(drzava, broj);
                                 break;
 
@@ -68,21 +79,21 @@ public class Program {
 
                     case 2:
                         System.out.println("Unesite ime osobe koju želite pretražiti:");
-                        String imeZaPretragu = scanner.nextLine();
+                        String imeZaPretragu = ulaz.nextLine();
                         String brojOsobe = imenik.dajBroj(imeZaPretragu);
                         System.out.println("Telefonski broj osobe: " + brojOsobe);
                         break;
 
                     case 3:
                         System.out.println("Unesite broj osobe koju želite pretražiti:");
-                        String brojZaPretragu = scanner.nextLine();
+                        String brojZaPretragu = ulaz.nextLine();
                         String imeOsobe = imenik.dajIme(new MedunarodniBroj("+387", brojZaPretragu)); // Promijenite vrstu broja prema vašim potrebama
                         System.out.println("Ime osobe: " + imeOsobe);
                         break;
 
                     case 4:
                         System.out.println("Izlaz iz programa.");
-                        scanner.close();
+                        ulaz.close();
                         System.exit(0);
                         break;
 

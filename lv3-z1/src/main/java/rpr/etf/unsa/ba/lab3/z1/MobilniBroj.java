@@ -7,14 +7,16 @@ public class MobilniBroj extends TelefonskiBroj {
     int mobilnaMreza;
 
     MobilniBroj(int mobilnaMreza, String broj){
+        if(mobilnaMreza<60 || mobilnaMreza>67)
+            throw new IllegalArgumentException("Nepostojeca mobilna mreza!");
         this.mobilnaMreza=mobilnaMreza;
-        this.broj= "0"+mobilnaMreza+"/"+broj;
+        this.broj= broj;
         //this.broj=String.format("0%03d/%s", mobilnaMreza, broj);
     }
 
     @Override
     public String ispisi() {
-        return this.broj;
+        return "0"+this.mobilnaMreza+"/"+this.broj;
     }
     /*@Override
     public int hashCode(){

@@ -8,7 +8,7 @@ public class FiksniBroj extends TelefonskiBroj {
     private Grad grad;
     FiksniBroj(Grad grad, String broj){
         this.grad=grad;
-        this.broj= grad.getOpis()+"/"+broj;
+        this.broj= broj;
     }
     public Grad dajGrad(){
         return this.grad;
@@ -16,7 +16,7 @@ public class FiksniBroj extends TelefonskiBroj {
 
     @Override
     public String ispisi() {
-        return this.broj;
+        return grad.getOpis()+"/"+broj;
     }
 
     /*@Override
