@@ -8,6 +8,8 @@ class MedunarodniBrojTest {
 
     @Test
     void ispisi() {
+        MedunarodniBroj br=new MedunarodniBroj("+387"," 62 331 - 221");
+        System.out.println(br.ispisi());
     }
 
     @Test
