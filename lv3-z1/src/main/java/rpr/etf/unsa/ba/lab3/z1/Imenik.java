@@ -9,6 +9,7 @@ import rpr.etf.unsa.ba.lab3.z1.Grad;
 public class Imenik {
     private HashMap<String, TelefonskiBroj> mapa=new HashMap<>();
 
+
     public Imenik(){}
 
     public void dodaj(String ime, TelefonskiBroj broj){
@@ -73,6 +74,10 @@ public class Imenik {
         }
 
         return brojeviIzGrada;
+    }
+
+    public int velicina(){
+        return mapa.size();
     }
 
 }
