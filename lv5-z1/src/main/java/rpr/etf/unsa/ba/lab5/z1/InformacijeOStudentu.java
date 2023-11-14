@@ -1,29 +1,13 @@
 package rpr.etf.unsa.ba.lab5.z1;
 
-public class InformacijeOStudentu {
-    private String ime, prezime, brIndexa, godinaStudija;
+public class InformacijeOStudentu extends LicneInformacije{
+    private String brIndexa, godinaStudija;
     InformacijeOStudentu(){}
     InformacijeOStudentu(String ime, String prezime, String brIndexa, String godinaStudija){
-        this.ime=ime;
-        this.prezime=prezime;
+        this.setIme(ime);
+        this.setPrezime(prezime);
         this.brIndexa=brIndexa;
         this.godinaStudija=godinaStudija;
-    }
-
-    public String getIme() {
-        return ime;
-    }
-
-    public void setIme(String ime) {
-        this.ime = ime;
-    }
-
-    public String getPrezime() {
-        return prezime;
-    }
-
-    public void setPrezime(String prezime) {
-        this.prezime = prezime;
     }
 
     public String getBrIndexa() {
