@@ -3,7 +3,7 @@ package rpr.etf.unsa.ba.lab5.z1;
 public class InformacijeOStudentu extends LicneInformacije{
     private String brIndexa, godinaStudija;
     InformacijeOStudentu(){}
-    InformacijeOStudentu(String ime, String prezime, String brIndexa, String godinaStudija){
+    InformacijeOStudentu(String ime, String prezime, String godinaStudija, String brIndexa){
         this.setIme(ime);
         this.setPrezime(prezime);
         this.brIndexa=brIndexa;
