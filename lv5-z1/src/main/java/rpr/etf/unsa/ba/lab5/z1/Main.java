@@ -8,6 +8,6 @@ public class Main {
 
         System.out.println("S1: "+s1.getIme()+" "+s1.getPrezime()+", broj indeksa "+s1.getBrIndexa());
         System.out.println("S2: "+s2.getIme()+" "+s2.getPrezime()+", broj indeksa "+s2.getBrIndexa());
-        System.out.println("N1: "+n1.getIme()+" "+n1.getPrezime()+", titula "+n1.getTitula());
+        System.out.println("N1: "+n1.getIme()+" "+n1.getPrezime()+", titula: "+n1.getTitula());
     }
 }
