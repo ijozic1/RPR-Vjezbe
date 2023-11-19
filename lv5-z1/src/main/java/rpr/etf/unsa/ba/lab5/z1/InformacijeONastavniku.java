@@ -1,7 +1,11 @@
 package rpr.etf.unsa.ba.lab5.z1;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class InformacijeONastavniku extends LicneInformacije{
     private String titula;
+    private List<Ocjena> ocjene = new ArrayList<>();
     InformacijeONastavniku(){}
     InformacijeONastavniku(String ime, String prezime, String titula){
         this.setIme(ime);
@@ -17,5 +21,8 @@ public class InformacijeONastavniku extends LicneInformacije{
     @Override
     public String predstavi(){
         return "Nastavnik: "+getIme()+" "+getPrezime()+", titula: "+getTitula();
+    }
+    public void dodajOcjenu(Ocjena o){
+        ocjene.add(o);
     }
 }
