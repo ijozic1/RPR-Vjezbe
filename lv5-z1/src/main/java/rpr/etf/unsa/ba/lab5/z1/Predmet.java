@@ -3,10 +3,12 @@ package rpr.etf.unsa.ba.lab5.z1;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Predmet {
+public class Predmet implements MozeOcijeniti {
     private String naziv, opis;
-    private List<Ocjena> ocjene=new ArrayList<>();
-    Predmet(){}
+    private List<Ocjena> ocjene;
+    Predmet(){
+        this.ocjene=new ArrayList<>();
+    }
 
     public String getNaziv() {
         return naziv;
@@ -27,8 +29,13 @@ public class Predmet {
     public String predstavi(){
         return "Naziv predmeta: "+getNaziv()+", opis: "+getOpis();
     }
-
-    public void dodajOcjenu(Ocjena o){
-        ocjene.add(o);
+    public List<Ocjena> getOcjene(){
+        return ocjene;
+    }
+    @Override
+    public Ocjena ocijeni(int ocjena) {
+        Ocjena novaOcjena = new Ocjena(null, ocjena);
+        ocjene.add(novaOcjena);
+        return novaOcjena;
     }
 }

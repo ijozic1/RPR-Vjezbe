@@ -5,8 +5,10 @@ import java.util.List;
 
 public class InformacijeONastavniku extends LicneInformacije{
     private String titula;
-    private List<Ocjena> ocjene = new ArrayList<>();
-    InformacijeONastavniku(){}
+    private List<Ocjena> ocjene;
+    InformacijeONastavniku(){
+        this.ocjene = new ArrayList<>();
+    }
     InformacijeONastavniku(String ime, String prezime, String titula){
         this.setIme(ime);
         this.setPrezime(prezime);
@@ -22,7 +24,12 @@ public class InformacijeONastavniku extends LicneInformacije{
     public String predstavi(){
         return "Nastavnik: "+getIme()+" "+getPrezime()+", titula: "+getTitula();
     }
-    public void dodajOcjenu(Ocjena o){
-        ocjene.add(o);
+    public List<Ocjena> getOcjene() {
+        return ocjene;
+    }
+    public Ocjena ocijeni(int ocjena) {
+        Ocjena novaOcjena = new Ocjena(null, ocjena);
+        ocjene.add(novaOcjena);
+        return novaOcjena;
     }
 }
