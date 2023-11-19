@@ -25,4 +25,9 @@ public class InformacijeOStudentu extends LicneInformacije{
     public void setGodinaStudija(String godinaStudija) {
         this.godinaStudija = godinaStudija;
     }
+
+    @Override
+    public String predstavi(){
+        return "Student: "+getIme()+" "+getPrezime()+", indeks: "+getBrIndexa();
+    }
 }

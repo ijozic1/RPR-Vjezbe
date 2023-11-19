@@ -16,9 +16,9 @@ public class Main {
         InformacijeONastavniku n1=new InformacijeONastavniku("Hamza", "Iseric", "strucnjak iz prakse");
         nastavnici.add(n1);
 
-        System.out.println("S1: "+s1.getIme()+" "+s1.getPrezime()+", broj indeksa "+s1.getBrIndexa());
-        System.out.println("S2: "+s2.getIme()+" "+s2.getPrezime()+", broj indeksa "+s2.getBrIndexa());
-        System.out.println("N1: "+n1.getIme()+" "+n1.getPrezime()+", titula: "+n1.getTitula());
+        System.out.println("S1: "+s1.predstavi());
+        System.out.println("S2: "+s2.predstavi());
+        System.out.println("N1: "+n1.predstavi());
 
         boolean noviBroj=true;
         while(noviBroj){
@@ -44,7 +44,7 @@ public class Main {
                             System.out.println("Unesite broj indeksa studenta: ");
                             brIndeksa=ulaz.nextLine();
                             InformacijeOStudentu s= new InformacijeOStudentu(ime, prezime, godStudija, brIndeksa);
-                            System.out.println("Student: "+s.getIme()+" "+s.getPrezime()+", broj indeksa "+s.getBrIndexa());
+                            System.out.println(s.predstavi());
                             studenti.add(s);
                             break;
                         case 2:
@@ -57,7 +57,7 @@ public class Main {
                             System.out.println("Unesite titulu nastavnika: ");
                             titula=ulaz.nextLine();
                             InformacijeONastavniku n= new InformacijeONastavniku(imeN, prezimeN, titula);
-                            System.out.println("Nastavnik: "+n.getIme()+" "+n.getPrezime()+", titula: "+n.getTitula());
+                            System.out.println(n.predstavi());
                             nastavnici.add(n);
                             break;
                         default:
@@ -73,11 +73,11 @@ public class Main {
         }
         System.out.println("\nSvi uneseni studenti: ");
         for(InformacijeOStudentu s : studenti){
-            System.out.println(s.getIme()+" "+s.getPrezime()+", broj indeksa "+s.getBrIndexa());
+            System.out.println(s.predstavi());
         }
         System.out.println("\nSvi unesesni nastavnici: ");
         for(InformacijeONastavniku nast : nastavnici){
-            System.out.println(nast.getIme()+" "+nast.getPrezime()+", titula: "+nast.getTitula());
+            System.out.println(nast.predstavi());
         }
     }
 }

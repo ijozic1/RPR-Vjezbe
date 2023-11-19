@@ -19,4 +19,7 @@ public class LicneInformacije {
     public String getPrezime() {
         return prezime;
     }
+    public String predstavi(){
+        return "Osoba: "+getIme()+" "+getPrezime();
+    }
 }

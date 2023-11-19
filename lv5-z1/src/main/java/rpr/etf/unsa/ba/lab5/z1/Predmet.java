@@ -19,4 +19,8 @@ public class Predmet {
     public void setOpis(String opis) {
         this.opis = opis;
     }
+
+    public String predstavi(){
+        return "Naziv predmeta: "+getNaziv()+", opis: "+getOpis();
+    }
 }
