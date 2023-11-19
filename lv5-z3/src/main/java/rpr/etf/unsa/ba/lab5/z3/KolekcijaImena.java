@@ -18,7 +18,7 @@ public class KolekcijaImena {
         return this.imenaIPrezimena;
     }
     public String getNajduzeIme(){
-        String najduzeIme=new String();
+        String najduzeIme="";
         for(String ime : this.imenaIPrezimena){
             if(ime.length()>najduzeIme.length()) najduzeIme=ime;
         }

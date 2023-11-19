@@ -10,7 +10,13 @@ public class Pobjednik {
         this.prezime = dijelovi.length > 1 ? dijelovi[1] : "";
         this.brojZnakova = najduzeIme.length();
     }
-
+    public Pobjednik(KolekcijaImenaIPrezimena kolekcijaImenaIPrezimena) {
+        int najduziIndeks = kolekcijaImenaIPrezimena.getIndexNajduzegPara();
+        this.ime = kolekcijaImenaIPrezimena.getImeiPrezime(najduziIndeks);
+        this.brojZnakova = this.ime.length();
+        String[] dijelovi = this.ime.split(" ");
+        this.prezime = dijelovi.length > 1 ? dijelovi[1] : "";
+    }
     public String getIme() {
         return ime;
     }
