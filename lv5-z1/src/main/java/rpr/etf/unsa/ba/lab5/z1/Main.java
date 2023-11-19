@@ -13,7 +13,8 @@ public class Main {
         studenti.add(s1);
         InformacijeOStudentu s2=new InformacijeOStudentu("Ismar", "Muslic","2","19304");
         studenti.add(s2);
-        InformacijeONastavniku n1=new InformacijeONastavniku("Hamza", "Iseric", "strucnjak iz prakse");
+        InformacijeONastavniku n1=new InformacijeONastavniku();
+        n1.setIme("Hamza"); n1.setPrezime("Iseric"); n1.setTitula("strucnjak iz prakse");
         nastavnici.add(n1);
 
         System.out.println("S1: "+s1.predstavi());
@@ -56,7 +57,8 @@ public class Main {
                             prezimeN=ulaz.nextLine();
                             System.out.println("Unesite titulu nastavnika: ");
                             titula=ulaz.nextLine();
-                            InformacijeONastavniku n= new InformacijeONastavniku(imeN, prezimeN, titula);
+                            InformacijeONastavniku n= new InformacijeONastavniku();
+                            n.setIme(imeN);n.setPrezime(prezimeN); n.setTitula(titula);
                             System.out.println(n.predstavi());
                             nastavnici.add(n);
                             break;
@@ -78,6 +80,32 @@ public class Main {
         System.out.println("\nSvi unesesni nastavnici: ");
         for(InformacijeONastavniku nast : nastavnici){
             System.out.println(nast.predstavi());
+        }
+        Predmet programiranje=new Predmet();
+        programiranje.setNaziv("Programiranje");
+        programiranje.setOpis("Osnove Java");
+
+        programiranje.getOcjene().add(new Ocjena(n1,9));
+        programiranje.getOcjene().add(new Ocjena(s1,9));
+
+        Ocjena ocjenaNastavnika=new Ocjena(s2,9);
+        n1.getOcjene().add(ocjenaNastavnika);
+
+        System.out.println("Ocjene za predmet " + programiranje.getNaziv() + ":");
+        try {
+            for (Ocjena ocjena : programiranje.getOcjene()) {
+                System.out.println("Ocijenio: " + ocjena.getOsoba().getIme() + " " + ocjena.getOsoba().getPrezime() +
+                        ", Ocjena: " + ocjena.getOcjena());
+            }
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+
+        System.out.println("\nOcjene za " + n1.predstavi() + ":");
+        for (Ocjena ocjena : n1.getOcjene()) {
+            System.out.println("Ocijenio: " + ocjena.getOsoba().getIme() + " " + ocjena.getOsoba().getPrezime() +
+                    ", Ocjena: " + ocjena.getOcjena());
         }
     }
 }

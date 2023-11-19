@@ -11,7 +11,14 @@ public class Ocjena {
     public void setOcjena(int o){
         if(o>0 && o<10) this.ocjena=o;
         else
-            throw new IllegalArgumentException("Ocena must be between 1 and 10");
+            throw new IllegalArgumentException("Ocena mora biti izmedju 1 i 10");
+    }
+    public void setOsoba(LicneInformacije osoba) {
+        if (osoba != null) {
+            this.osoba = osoba;
+        } else {
+            throw new IllegalArgumentException("Osoba ne postoji");
+        }
     }
     public LicneInformacije getOsoba() {
         return osoba;
