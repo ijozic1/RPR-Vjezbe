@@ -3,7 +3,7 @@ package rpr.etf.unsa.ba.lab5.z1;
 import java.util.ArrayList;
 import java.util.List;
 
-public class InformacijeONastavniku extends LicneInformacije{
+public class InformacijeONastavniku extends LicneInformacije implements MozeOcijeniti{
     private String titula;
     private List<Ocjena> ocjene;
     InformacijeONastavniku(){
@@ -27,6 +27,7 @@ public class InformacijeONastavniku extends LicneInformacije{
     public List<Ocjena> getOcjene() {
         return ocjene;
     }
+    @Override
     public Ocjena ocijeni(int ocjena) {
         Ocjena novaOcjena = new Ocjena(null, ocjena);
         ocjene.add(novaOcjena);
