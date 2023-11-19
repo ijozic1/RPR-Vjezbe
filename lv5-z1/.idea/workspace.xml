@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="d73e8694-406d-489c-a20e-037d32dd5d9e" name="Changes" comment="Dodano ocjenjivanje u Main" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/.." value="lv5-z1" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2YAKRXkVMfhgF9WBSa5VufMW38s" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "lv5-z2",
+    "last_opened_file_path": "C:/Users/Korisnik/RPR/LV2",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d73e8694-406d-489c-a20e-037d32dd5d9e" name="Changes" comment="" />
+      <created>1699962937992</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1699962937992</updated>
+      <workItem from="1699962938825" duration="1961000" />
+      <workItem from="1700383023823" duration="8144000" />
+    </task>
+    <task id="LOCAL−00001" summary="Klase LicneInformacije i InformacijeOStudentu">
+      <option name="closed" value="true" />
+      <created>1699963547147</created>
+      <option name="number" value="LOCAL−00001" />
+      <option name="presentableId" value="LOCAL−00001" />
+      <updated>1699963547147</updated>
+    </task>
+    <task id="LOCAL−00002" summary="implementirano naslijeđivanje">
+      <option name="closed" value="true" />
+      <created>1699963978911</created>
+      <option name="number" value="LOCAL−00002" />
+      <option name="presentableId" value="LOCAL−00002" />
+      <updated>1699963978911</updated>
+    </task>
+    <task id="LOCAL−00003" summary="Klasa main">
+      <option name="closed" value="true" />
+      <created>1699964652719</created>
+      <option name="number" value="LOCAL−00003" />
+      <option name="presentableId" value="LOCAL−00003" />
+      <updated>1699964652719</updated>
+    </task>
+    <task id="LOCAL−00004" summary="Prepravka u ispisu u Mainu">
+      <option name="closed" value="true" />
+      <created>1699964762820</created>
+      <option name="number" value="LOCAL−00004" />
+      <option name="presentableId" value="LOCAL−00004" />
+      <updated>1699964762820</updated>
+    </task>
+    <task id="LOCAL−00005" summary="U Main dodana mogucnost unosa od strane korisnika">
+      <option name="closed" value="true" />
+      <created>1700384596103</created>
+      <option name="number" value="LOCAL−00005" />
+      <option name="presentableId" value="LOCAL−00005" />
+      <updated>1700384596103</updated>
+    </task>
+    <task id="LOCAL−00006" summary="U Main dodane liste studenata i nastavnika">
+      <option name="closed" value="true" />
+      <created>1700385733834</created>
+      <option name="number" value="LOCAL−00006" />
+      <option name="presentableId" value="LOCAL−00006" />
+      <updated>1700385733834</updated>
+    </task>
+    <task id="LOCAL−00007" summary="Dodana klasa Predmet, kao i get i set metode za nju">
+      <option name="closed" value="true" />
+      <created>1700385866159</created>
+      <option name="number" value="LOCAL−00007" />
+      <option name="presentableId" value="LOCAL−00007" />
+      <updated>1700385866159</updated>
+    </task>
+    <task id="LOCAL−00008" summary="Implementirana klasa KolekcijaPoruka i dodane metode predstavi() u ranije implementirane klase">
+      <option name="closed" value="true" />
+      <created>1700391498103</created>
+      <option name="number" value="LOCAL−00008" />
+      <option name="presentableId" value="LOCAL−00008" />
+      <updated>1700391498103</updated>
+    </task>
+    <task id="LOCAL−00009" summary="Dodane klase MozeOcijeniti i Ocjena">
+      <option name="closed" value="true" />
+      <created>1700392339239</created>
+      <option name="number" value="LOCAL−00009" />
+      <option name="presentableId" value="LOCAL−00009" />
+      <updated>1700392339239</updated>
+    </task>
+    <task id="LOCAL−00010" summary="Modifikacije klasa Predmet i InformacijeONastavniku u skladu sa novim klasama">
+      <option name="closed" value="true" />
+      <created>1700392862437</created>
+      <option name="number" value="LOCAL−00010" />
+      <option name="presentableId" value="LOCAL−00010" />
+      <updated>1700392862437</updated>
+    </task>
+    <task id="LOCAL−00011" summary="Modifikacije klasa Predmet i InformacijeONastavniku u skladu sa novim klasama">
+      <option name="closed" value="true" />
+      <created>1700392939861</created>
+      <option name="number" value="LOCAL−00011" />
+      <option name="presentableId" value="LOCAL−00011" />
+      <updated>1700392939861</updated>
+    </task>
+    <task id="LOCAL−00012" summary="Dodano ocjenjivanje u Main">
+      <option name="closed" value="true" />
+      <created>1700397662148</created>
+      <option name="number" value="LOCAL−00012" />
+      <option name="presentableId" value="LOCAL−00012" />
+      <updated>1700397662148</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Klase LicneInformacije i InformacijeOStudentu" />
+    <MESSAGE value="implementirano naslijeđivanje" />
+    <MESSAGE value="Klasa main" />
+    <MESSAGE value="Prepravka u ispisu u Mainu" />
+    <MESSAGE value="U Main dodana mogucnost unosa od strane korisnika" />
+    <MESSAGE value="U Main dodane liste studenata i nastavnika" />
+    <MESSAGE value="Dodana klasa Predmet, kao i get i set metode za nju" />
+    <MESSAGE value="Implementirana klasa KolekcijaPoruka i dodane metode predstavi() u ranije implementirane klase" />
+    <MESSAGE value="Dodane klase MozeOcijeniti i Ocjena" />
+    <MESSAGE value="Modifikacije klasa Predmet i InformacijeONastavniku u skladu sa novim klasama" />
+    <MESSAGE value="Dodano ocjenjivanje u Main" />
+    <option name="LAST_COMMIT_MESSAGE" value="Dodano ocjenjivanje u Main" />
+  </component>
+</project>
