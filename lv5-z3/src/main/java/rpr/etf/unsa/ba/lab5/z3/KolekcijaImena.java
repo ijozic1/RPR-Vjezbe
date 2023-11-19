@@ -11,7 +11,7 @@ public class KolekcijaImena {
     public void dodajImeIPrezime(String ime){
         this.imenaIPrezimena.add(ime);
     }
-    public void setImenaIPrezimena(List<String> imena){
+    public KolekcijaImena(List<String> imena){
         this.imenaIPrezimena=imena;
     }
     public List<String> getImenaIPrezimena(){
