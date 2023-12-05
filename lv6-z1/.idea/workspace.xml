@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="bd662424-5e64-492e-84a1-9be571d102f6" name="Default Changelist" comment="popravljen main">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="1krhg7URHPj3GqmdhmlcMyqNNWs" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "last_directory_selection": "C:/Users/Korisnik/Desktop/rpr21-tutorijal6-ijozic1/src",
+    "last_opened_file_path": "C:/Users/Korisnik/Desktop/Esma/RPR-Vjezbe/lv6-z1",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "SDKs",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/fxml" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ba.unsa.etf.rpr.tutorijal06.Main" />
+      <module name="rpr20-tutorijal6" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ba.unsa.etf.rpr.tutorijal06.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="bd662424-5e64-492e-84a1-9be571d102f6" name="Default Changelist" comment="" />
+      <created>1606464726124</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1606464726124</updated>
+      <workItem from="1701171189876" duration="3369000" />
+      <workItem from="1701209065274" duration="1216000" />
+      <workItem from="1701272372642" duration="323000" />
+      <workItem from="1701428641114" duration="727000" />
+      <workItem from="1701429502285" duration="161000" />
+      <workItem from="1701726869495" duration="1205000" />
+      <workItem from="1701728087742" duration="185000" />
+      <workItem from="1701728276490" duration="3208000" />
+      <workItem from="1701765189604" duration="232000" />
+      <workItem from="1701765937275" duration="150000" />
+      <workItem from="1701774656260" duration="2322000" />
+    </task>
+    <task id="LOCAL−00001" summary="Postavke izgleda">
+      <option name="closed" value="true" />
+      <created>1701174522473</created>
+      <option name="number" value="LOCAL−00001" />
+      <option name="presentableId" value="LOCAL−00001" />
+      <updated>1701174522473</updated>
+    </task>
+    <task id="LOCAL−00002" summary="Postavke izgleda doradjeno">
+      <option name="closed" value="true" />
+      <created>1701210224124</created>
+      <option name="number" value="LOCAL−00002" />
+      <option name="presentableId" value="LOCAL−00002" />
+      <updated>1701210224124</updated>
+    </task>
+    <task id="LOCAL−00003" summary="SDK 1.8">
+      <option name="closed" value="true" />
+      <created>1701272665651</created>
+      <option name="number" value="LOCAL−00003" />
+      <option name="presentableId" value="LOCAL−00003" />
+      <updated>1701272665651</updated>
+    </task>
+    <task id="LOCAL−00004" summary="promjena rasporeda u GUIu">
+      <option name="closed" value="true" />
+      <created>1701728068878</created>
+      <option name="number" value="LOCAL−00004" />
+      <option name="presentableId" value="LOCAL−00004" />
+      <updated>1701728068878</updated>
+    </task>
+    <task id="LOCAL−00005" summary="dodane upravljacke komande">
+      <option name="closed" value="true" />
+      <created>1701729865723</created>
+      <option name="number" value="LOCAL−00005" />
+      <option name="presentableId" value="LOCAL−00005" />
+      <updated>1701729865723</updated>
+    </task>
+    <task id="LOCAL−00006" summary="dodane upravljacke komande">
+      <option name="closed" value="true" />
+      <created>1701730064867</created>
+      <option name="number" value="LOCAL−00006" />
+      <option name="presentableId" value="LOCAL−00006" />
+      <updated>1701730064867</updated>
+    </task>
+    <task id="LOCAL−00007" summary="dodane upravljacke komande">
+      <option name="closed" value="true" />
+      <created>1701730470457</created>
+      <option name="number" value="LOCAL−00007" />
+      <option name="presentableId" value="LOCAL−00007" />
+      <updated>1701730470457</updated>
+    </task>
+    <task id="LOCAL−00008" summary="doradjene funkcionalnosti">
+      <option name="closed" value="true" />
+      <created>1701731348300</created>
+      <option name="number" value="LOCAL−00008" />
+      <option name="presentableId" value="LOCAL−00008" />
+      <updated>1701731348300</updated>
+    </task>
+    <task id="LOCAL−00009" summary="doradjene funkcionalnosti">
+      <option name="closed" value="true" />
+      <created>1701774694199</created>
+      <option name="number" value="LOCAL−00009" />
+      <option name="presentableId" value="LOCAL−00009" />
+      <updated>1701774694199</updated>
+    </task>
+    <task id="LOCAL−00010" summary="doradjene funkcionalnosti">
+      <option name="closed" value="true" />
+      <created>1701775891895</created>
+      <option name="number" value="LOCAL−00010" />
+      <option name="presentableId" value="LOCAL−00010" />
+      <updated>1701775891895</updated>
+    </task>
+    <task id="LOCAL−00011" summary="popravljen main">
+      <option name="closed" value="true" />
+      <created>1701776886328</created>
+      <option name="number" value="LOCAL−00011" />
+      <option name="presentableId" value="LOCAL−00011" />
+      <updated>1701776886328</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$" />
+    </ignored-roots>
+    <MESSAGE value="Postavke izgleda" />
+    <MESSAGE value="Postavke izgleda doradjeno" />
+    <MESSAGE value="SDK 1.8" />
+    <MESSAGE value="promjena rasporeda u GUIu" />
+    <MESSAGE value="dodane upravljacke komande" />
+    <MESSAGE value="doradjene funkcionalnosti" />
+    <MESSAGE value="popravljen main" />
+    <option name="LAST_COMMIT_MESSAGE" value="popravljen main" />
+  </component>
+</project>
