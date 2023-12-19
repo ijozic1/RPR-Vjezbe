@@ -12,6 +12,7 @@ class KorisniciModelTest {
 
     @Test
     void testNapuni() {
+        //test 1
         KorisniciModel korisniciModel = new KorisniciModel();
         korisniciModel.napuni();
         assertNull(korisniciModel.getTrenutniKorisnik());
