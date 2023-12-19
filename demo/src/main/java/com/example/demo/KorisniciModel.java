@@ -39,4 +39,7 @@ public class KorisniciModel {
     public void napuni(){
         korisnici.add(new Korisnik("Ivona", "Jozic", "ijozic1@etf.unsa.ba", "ijozic1", "12345"));
     }
+    public void napuni(Korisnik k){
+        korisnici.add(k);
+    }
 }
