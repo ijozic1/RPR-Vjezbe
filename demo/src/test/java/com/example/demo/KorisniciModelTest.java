@@ -15,18 +15,15 @@ class KorisniciModelTest {
         KorisniciModel korisniciModel = new KorisniciModel();
         korisniciModel.napuni(); // Dodaj nekoliko korisnika u model
 
-        // Trenutni korisnik treba biti null prije dodavanja novog korisnika
         assertNull(korisniciModel.getTrenutniKorisnik());
 
-        // Dodaj novog korisnika
         korisniciModel.napuni();
 
-        // Provjeri da li je dodan novi korisnik
         assertNotNull(korisniciModel.getTrenutniKorisnik());
         assertEquals("", korisniciModel.getTrenutniKorisnik().getIme());
         assertEquals("", korisniciModel.getTrenutniKorisnik().getPrezime());
         assertEquals("", korisniciModel.getTrenutniKorisnik().getEmail());
-        assertEquals("", korisniciModel.getTrenutniKorisnik().getUsername();
+        assertEquals("", korisniciModel.getTrenutniKorisnik().getUsername());
         assertEquals("", korisniciModel.getTrenutniKorisnik().getLozinka());
     }
 }
