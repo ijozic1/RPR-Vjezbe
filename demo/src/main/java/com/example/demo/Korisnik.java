@@ -83,5 +83,8 @@ public class Korisnik {
     @Override
     public String toString() {
         return ime.get() + " " + prezime.get();
+        //moglo i
+        //return username.get()
+        //pa bi se u listi umjeto imena i prezimena prikazivao username korisnika
     }
 }
