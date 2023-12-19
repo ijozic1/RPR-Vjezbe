@@ -4,13 +4,15 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 public class Korisnik {
-    private StringProperty ime=new SimpleStringProperty("");
-    private StringProperty prezime=new SimpleStringProperty("");
-    private StringProperty eMail=new SimpleStringProperty("");
-    private StringProperty username=new SimpleStringProperty("");
-    private StringProperty lozinka=new SimpleStringProperty("");
+    private SimpleStringProperty ime, prezime, eMail, username, lozinka;;
 
-    public Korisnik(){}
+    public Korisnik(){
+        this.ime=new SimpleStringProperty("");
+        this.prezime=new SimpleStringProperty("");
+        this.eMail=new SimpleStringProperty("");
+        this.username=new SimpleStringProperty("");
+        this.lozinka=new SimpleStringProperty("");
+    }
 
     public Korisnik(String ime, String prezime, String eMail, String username, String lozinka){
         this.ime=new SimpleStringProperty(ime);
@@ -28,18 +30,13 @@ public class Korisnik {
         this.lozinka=lozinka;
     }
 
-    @Override
-    public String toString() {
-        return ime.get() + " " + prezime.get();
-    }
-
     public void setIme(String ime){
         this.ime.set(ime);
    }
     public String getIme(){
         return this.ime.get();
     }
-    public StringProperty imeProperty(){
+    public SimpleStringProperty imeProperty(){
         return ime;
     }
 
@@ -49,7 +46,7 @@ public class Korisnik {
     public String getPrezime(){
         return this.prezime.get();
     }
-    public StringProperty prezimeProperty(){
+    public SimpleStringProperty prezimeProperty(){
         return prezime;
     }
 
@@ -59,7 +56,7 @@ public class Korisnik {
     public String getEmail(){
         return this.eMail.get();
     }
-    public StringProperty eMailProperty(){
+    public SimpleStringProperty eMailProperty(){
         return eMail;
     }
 
@@ -69,7 +66,7 @@ public class Korisnik {
     public String getUsername(){
         return this.username.get();
     }
-    public StringProperty usernameProperty(){
+    public SimpleStringProperty usernameProperty(){
         return username;
     }
 
@@ -79,7 +76,12 @@ public class Korisnik {
     public String getLozinka(){
         return this.lozinka.get();
     }
-    public StringProperty lozinkaProperty(){
+    public SimpleStringProperty lozinkaProperty(){
         return lozinka;
+    }
+
+    @Override
+    public String toString() {
+        return ime.get() + " " + prezime.get();
     }
 }
