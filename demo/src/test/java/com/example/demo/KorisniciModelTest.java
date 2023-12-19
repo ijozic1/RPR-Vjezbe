@@ -12,13 +12,14 @@ class KorisniciModelTest {
 
     @Test
     void testNapuni() {
-        //test 1
+        //test 1 - konkretni podaci
         KorisniciModel korisniciModel = new KorisniciModel();
         korisniciModel.napuni();
         assertNull(korisniciModel.getTrenutniKorisnik());
 
-        korisniciModel.napuni(new Korisnik("Ivona", "Jozic", "ijozic1@etf.unsa.ba","ijozic1","1234"));
-        korisniciModel.getTrenutniKorisnik();
+        korisniciModel.setTrenutniKorisnik(new Korisnik("Ivona", "Jozic", "ijozic1@etf.unsa.ba","ijozic1","1234"));
+
+        assertNotNull(korisniciModel.getTrenutniKorisnik());
         assertEquals("Ivona", korisniciModel.getTrenutniKorisnik().getIme());
         assertEquals("Jozic", korisniciModel.getTrenutniKorisnik().getPrezime());
         assertEquals("ijozic1@etf.unsa.ba", korisniciModel.getTrenutniKorisnik().getEmail());
@@ -28,19 +29,36 @@ class KorisniciModelTest {
 
     @Test
     void testNapuni1() {
+        //test2 - ubacivanje nullptr
         KorisniciModel korisniciModel = new KorisniciModel();
         korisniciModel.napuni();
-        korisniciModel.getTrenutniKorisnik();
+        //assertEquals(korisniciModel.brojKorisnika(),1);
 
         assertNull(korisniciModel.getTrenutniKorisnik());
+    }
 
-        korisniciModel.napuni();
-        korisniciModel.getTrenutniKorisnik();
-        assertNotNull(korisniciModel.getTrenutniKorisnik());
-        assertEquals("", korisniciModel.getTrenutniKorisnik().getIme());
-        assertEquals("", korisniciModel.getTrenutniKorisnik().getPrezime());
-        assertEquals("", korisniciModel.getTrenutniKorisnik().getEmail());
-        assertEquals("", korisniciModel.getTrenutniKorisnik().getUsername());
-        assertEquals("", korisniciModel.getTrenutniKorisnik().getLozinka());
+    @Test
+    void testNapuni2() {
+        //test3 - prazni stringovi
+        KorisniciModel korisniciModel = new KorisniciModel();
+
+        korisniciModel.setTrenutniKorisnik(new Korisnik("","","","",""));
+        Korisnik temp=korisniciModel.getTrenutniKorisnik();
+
+        assertNotNull(temp);
+
+        assertEquals("", temp.getIme());
+        assertEquals("", temp.getPrezime());
+        assertEquals("", temp.getEmail());
+        assertEquals("", temp.getUsername());
+        assertEquals("", temp.getLozinka());
+    }
+
+    @Test
+    void brojKorisnikaTest() {
+        //test4 - broj korisnika u KorisniciModel
+        KorisniciModel korisniciModel = new KorisniciModel();
+        korisniciModel.napuni(new Korisnik("Ivona", "Jozic", "ijozic1@etf.unsa.ba","ijozic1","1234"));
+        assertEquals(korisniciModel.brojKorisnika(),1);
     }
 }
