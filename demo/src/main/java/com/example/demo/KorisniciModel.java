@@ -35,4 +35,8 @@ public class KorisniciModel {
     public void setTrenutniKorisnik(Korisnik trKorisnik){
         this.trenutniKorisnik.set(trKorisnik);
     }
+
+    public void napuni(){
+        korisnici.add(new Korisnik("Ivona", "Jozic", "ijozic1@etf.unsa.ba", "ijozic1", "12345"));
+    }
 }
