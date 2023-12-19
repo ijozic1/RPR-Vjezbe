@@ -17,7 +17,7 @@
       <children>
          <VBox prefHeight="70.0" prefWidth="177.0">
             <children>
-               <ListView editable="true" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
+               <ListView fx:id="lista" editable="true" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
             </children></VBox>
          <VBox prefHeight="70.0" prefWidth="177.0">
             <children>
