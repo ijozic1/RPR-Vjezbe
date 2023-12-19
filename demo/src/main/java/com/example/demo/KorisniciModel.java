@@ -42,4 +42,7 @@ public class KorisniciModel {
     public void napuni(Korisnik k){
         korisnici.add(k);
     }
+    public int brojKorisnika(){
+        return korisnici.size();
+    }
 }
