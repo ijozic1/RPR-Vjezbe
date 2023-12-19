@@ -38,15 +38,7 @@ class HelloApplicationTest {
 
     @Test
     void testDodajButtonAction(FxRobot robot) {
-        /*HelloController controller = FxToolkit.controller(HelloController.class);
-        controller.onDodajButtonClick("#dodajDugme");
-
-        // Provjerava da li su polja za unos prazna nakon klika na Dodaj
-        verifyThat("#imePolje", hasText(""));
-        verifyThat("#prezimePolje", hasText(""));
-        verifyThat("#eMailPolje", hasText(""));
-        verifyThat("#usernamePolje", hasText(""));
-        verifyThat("#lozinkaPolje", hasText(""));*/
+        //Test 1
         TextField fldKorisnickoIme = robot.lookup("#usernamePolje").queryAs(TextField.class);
         robot.clickOn("#usernamePolje");
         robot.write("anonymous");
@@ -54,4 +46,21 @@ class HelloApplicationTest {
         assertEquals("", fldKorisnickoIme.getText());
     }
 
+    @Test
+    void testDodajButtonAction1(FxRobot robot) {
+        //Test 2
+        TextField fldIme= robot.lookup("#imePolje").queryAs(TextField.class);
+        TextField fldPrezime= robot.lookup("#prezimePolje").queryAs(TextField.class);
+        TextField fldEmail= robot.lookup("#eMailPolje").queryAs(TextField.class);
+        TextField fldKorisnickoIme = robot.lookup("#usernamePolje").queryAs(TextField.class);
+        TextField fldLozinka= robot.lookup("#lozinkaPolje").queryAs(TextField.class);
+        robot.clickOn("#dodajDugme");
+
+        assertEquals("", fldIme.getText());
+        assertEquals("", fldPrezime.getText());
+        assertEquals("", fldEmail.getText());
+        assertEquals("", fldKorisnickoIme.getText());
+        assertEquals("", fldLozinka.getText());
+
+    }
 }
