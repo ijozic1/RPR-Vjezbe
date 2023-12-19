@@ -5,14 +5,10 @@ import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.stage.Stage;
-import javafx.application.Application;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 
 
-public class HelloController {
-    public HelloController(KorisniciModel model) {
+public class LoginController {
+    public LoginController(KorisniciModel model) {
         this.model = model;
         this.model.setTrenutniKorisnik(this.model.getKorisnici().getFirst());
     }

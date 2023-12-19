@@ -7,13 +7,13 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class HelloApplication extends Application {
+public class LoginApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         KorisniciModel model = new KorisniciModel();
         model.napuni();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
-        fxmlLoader.setController(new HelloController(model));
+        FXMLLoader fxmlLoader = new FXMLLoader(LoginApplication.class.getResource("hello-view.fxml"));
+        fxmlLoader.setController(new LoginController(model));
         Scene scene = new Scene(fxmlLoader.load(), 398, 288);
         stage.setTitle("Login forma");
         stage.setScene(scene);
