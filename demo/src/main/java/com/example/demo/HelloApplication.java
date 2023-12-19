@@ -10,11 +10,14 @@ import java.io.IOException;
 public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
+        KorisniciModel model = new KorisniciModel();
+        model.napuni();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
+        fxmlLoader.setController(new HelloController(model));
+        Scene scene = new Scene(fxmlLoader.load(), 398, 288);
         stage.setTitle("Hello!");
         stage.setScene(scene);
-        //stage.setResizable(false); //ako hocu da se ne moze resize-ati prozor
+        stage.setResizable(false); //ako hocu da se ne moze resize-ati prozor
         stage.show();
     }
 

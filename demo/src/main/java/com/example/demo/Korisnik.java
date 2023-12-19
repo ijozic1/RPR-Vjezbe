@@ -28,7 +28,12 @@ public class Korisnik {
         this.lozinka=lozinka;
     }
 
-   public void setIme(String ime){
+    @Override
+    public String toString() {
+        return ime.get() + " " + prezime.get();
+    }
+
+    public void setIme(String ime){
         this.ime.set(ime);
    }
     public String getIme(){

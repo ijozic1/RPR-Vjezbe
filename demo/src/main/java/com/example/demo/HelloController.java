@@ -1,5 +1,7 @@
 package com.example.demo;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -10,6 +12,10 @@ import javafx.collections.ObservableList;
 
 
 public class HelloController {
+    public HelloController(KorisniciModel model) {
+        this.model = model;
+        this.model.setTrenutniKorisnik(this.model.getKorisnici().getFirst());
+    }
     private KorisniciModel model;
     //private ObservableList<Korisnik> listaKorisnika=FXCollections.observableArrayList();
     public Button krajDugme;
@@ -19,7 +25,7 @@ public class HelloController {
     public TextField prezimePolje;
     public TextField eMailPolje;
     public TextField usernamePolje;
-    public ListView lista;
+    public ListView<Korisnik> lista;
     @FXML
     private Label welcomeText;
 
@@ -30,8 +36,9 @@ public class HelloController {
     }
 
     public void onKrajButtonClick(ActionEvent actionEvent) {
-        Stage stage=(Stage) krajDugme.getScene().getWindow();
-        stage.close();
+       /* Stage stage=(Stage) krajDugme.getScene().getWindow();
+        stage.close();*/
+        System.exit(0);
     }
     @FXML
     public void initialize() {
@@ -47,9 +54,12 @@ public class HelloController {
                 prezimePolje.textProperty().unbindBidirectional(model.getTrenutniKorisnik().prezimeProperty());
                 eMailPolje.textProperty().unbindBidirectional(model.getTrenutniKorisnik().eMailProperty());
                 usernamePolje.textProperty().unbindBidirectional(model.getTrenutniKorisnik().usernameProperty());
-                lozinkaPolje.textProperty().unbindBidirectional(model.getTrenutniKorisnik().imeProperty());
+                lozinkaPolje.textProperty().unbindBidirectional(model.getTrenutniKorisnik().lozinkaProperty());
             }
+
+
             model.setTrenutniKorisnik(newUser);
+
 
             if (newUser == null) {
                 imePolje.setText("");
@@ -58,16 +68,11 @@ public class HelloController {
                 usernamePolje.setText("");
                 lozinkaPolje.setText("");
             } else {
-                /*imePolje.textProperty().bindBidirectional(newUser.imeProperty());
-                prezimePolje.textProperty().bindBidirectional(newUser.imeProperty());
-                eMailPolje.textProperty().bindBidirectional(newUser.imeProperty());
-                usernamePolje.textProperty().bindBidirectional(newUser.imeProperty());
-                lozinkaPolje.textProperty().bindBidirectional(newUser.imeProperty());*/
                 imePolje.textProperty().bindBidirectional(model.getTrenutniKorisnik().imeProperty());
                 prezimePolje.textProperty().bindBidirectional(model.getTrenutniKorisnik().prezimeProperty());
                 eMailPolje.textProperty().bindBidirectional(model.getTrenutniKorisnik().eMailProperty());
                 usernamePolje.textProperty().bindBidirectional(model.getTrenutniKorisnik().usernameProperty());
-                lozinkaPolje.textProperty().bindBidirectional(model.getTrenutniKorisnik().imeProperty());
+                lozinkaPolje.textProperty().bindBidirectional(model.getTrenutniKorisnik().lozinkaProperty());
             }
             lista.refresh();
         }));
@@ -89,5 +94,14 @@ public class HelloController {
         model.setTrenutniKorisnik(model.getKorisnici().getLast());
 
         lista.refresh();
+    }
+
+    private void refreshajListu(TextField naziv) {
+        naziv.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
+                lista.refresh();
+            }
+        });
     }
 }
