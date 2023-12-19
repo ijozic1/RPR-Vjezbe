@@ -5,26 +5,24 @@ import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
+import javafx.scene.control.PasswordField;
 
 
 public class LoginController {
-    public LoginController(KorisniciModel model) {
-        this.model = model;
-        this.model.setTrenutniKorisnik(this.model.getKorisnici().getFirst());
-    }
     private KorisniciModel model;
     //private ObservableList<Korisnik> listaKorisnika=FXCollections.observableArrayList();
-    public Button krajDugme;
-    public Button dodajDugme;
+    public Button krajDugme, dodajDugme;
     public PasswordField lozinkaPolje;
-    public TextField imePolje;
-    public TextField prezimePolje;
-    public TextField eMailPolje;
-    public TextField usernamePolje;
+    public TextField imePolje, prezimePolje, eMailPolje, usernamePolje;
     public ListView<Korisnik> lista;
-    @FXML
-    private Label welcomeText;
 
+    public LoginController(KorisniciModel model) {
+        this.model = model;
+        lista=new ListView<>();
+        this.model.setTrenutniKorisnik(this.model.getKorisnici().getFirst());
+    }
     public void onDodajButtonClick(ActionEvent actionEvent) {
         Korisnik novi=new Korisnik();
         model.napuni(novi);
@@ -38,24 +36,34 @@ public class LoginController {
     }
     @FXML
     public void initialize() {
+        if (model.getTrenutniKorisnik() == null) {
+            imePolje.setText("");
+            prezimePolje.setText("");
+            eMailPolje.setText("");
+            usernamePolje.setText("");
+            lozinkaPolje.setText("");
+        }
+        else {
+            imePolje.setText(model.getTrenutniKorisnik().getIme());
+            prezimePolje.setText(model.getTrenutniKorisnik().getPrezime());
+            eMailPolje.setText(model.getTrenutniKorisnik().getEmail());
+            usernamePolje.setText(model.getTrenutniKorisnik().getUsername());
+            lozinkaPolje.setText(model.getTrenutniKorisnik().getLozinka());
+        }
+
         lista.setItems(model.getKorisnici());
+
         lista.getSelectionModel().selectedItemProperty().addListener(((observableValue, oldUser, newUser) -> {
             if (oldUser != null) {
-                /*imePolje.textProperty().unbindBidirectional(oldUser.imeProperty());
+                imePolje.textProperty().unbindBidirectional(oldUser.imeProperty());
+                //imePolje.textProperty().unbindBidirectional(model.getTrenutniKorisnik().imeProperty()); //moglo i ovako
                 prezimePolje.textProperty().unbindBidirectional(oldUser.prezimeProperty());
                 eMailPolje.textProperty().unbindBidirectional(oldUser.eMailProperty());
                 usernamePolje.textProperty().unbindBidirectional(oldUser.usernameProperty());
-                lozinkaPolje.textProperty().unbindBidirectional(oldUser.lozinkaProperty());*/
-                imePolje.textProperty().unbindBidirectional(model.getTrenutniKorisnik().imeProperty());
-                prezimePolje.textProperty().unbindBidirectional(model.getTrenutniKorisnik().prezimeProperty());
-                eMailPolje.textProperty().unbindBidirectional(model.getTrenutniKorisnik().eMailProperty());
-                usernamePolje.textProperty().unbindBidirectional(model.getTrenutniKorisnik().usernameProperty());
-                lozinkaPolje.textProperty().unbindBidirectional(model.getTrenutniKorisnik().lozinkaProperty());
+                lozinkaPolje.textProperty().unbindBidirectional(oldUser.lozinkaProperty());
             }
 
-
             model.setTrenutniKorisnik(newUser);
-
 
             if (newUser == null) {
                 imePolje.setText("");
@@ -63,17 +71,19 @@ public class LoginController {
                 eMailPolje.setText("");
                 usernamePolje.setText("");
                 lozinkaPolje.setText("");
-            } else {
-                imePolje.textProperty().bindBidirectional(model.getTrenutniKorisnik().imeProperty());
-                prezimePolje.textProperty().bindBidirectional(model.getTrenutniKorisnik().prezimeProperty());
-                eMailPolje.textProperty().bindBidirectional(model.getTrenutniKorisnik().eMailProperty());
-                usernamePolje.textProperty().bindBidirectional(model.getTrenutniKorisnik().usernameProperty());
-                lozinkaPolje.textProperty().bindBidirectional(model.getTrenutniKorisnik().lozinkaProperty());
             }
+            else {
+                imePolje.textProperty().bindBidirectional(newUser.imeProperty());
+                //imePolje.textProperty().bindBidirectional(model.getTrenutniKorisnik().imeProperty());
+                prezimePolje.textProperty().bindBidirectional(newUser.prezimeProperty());
+                eMailPolje.textProperty().bindBidirectional(newUser.eMailProperty());
+                usernamePolje.textProperty().bindBidirectional(newUser.usernameProperty());
+                lozinkaPolje.textProperty().bindBidirectional(newUser.lozinkaProperty());
+            }
+
             lista.refresh();
         }));
     }
-
 
     private void prikaziDetaljeOKorisniku(Korisnik korisnik) {
         imePolje.textProperty().bindBidirectional(korisnik.imeProperty());
