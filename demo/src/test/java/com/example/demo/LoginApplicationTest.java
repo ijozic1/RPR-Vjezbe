@@ -59,4 +59,5 @@ class LoginApplicationTest {
         assertEquals("", fldLozinka.getText());
 
     }
+
 }
