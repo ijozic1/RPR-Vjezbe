@@ -13,12 +13,28 @@ class KorisniciModelTest {
     @Test
     void testNapuni() {
         KorisniciModel korisniciModel = new KorisniciModel();
-        korisniciModel.napuni(); // Dodaj nekoliko korisnika u model
+        korisniciModel.napuni();
+        assertNull(korisniciModel.getTrenutniKorisnik());
+
+        korisniciModel.napuni(new Korisnik("Ivona", "Jozic", "ijozic1@etf.unsa.ba","ijozic1","1234"));
+        korisniciModel.getTrenutniKorisnik();
+        assertEquals("Ivona", korisniciModel.getTrenutniKorisnik().getIme());
+        assertEquals("Jozic", korisniciModel.getTrenutniKorisnik().getPrezime());
+        assertEquals("ijozic1@etf.unsa.ba", korisniciModel.getTrenutniKorisnik().getEmail());
+        assertEquals("ijozic1", korisniciModel.getTrenutniKorisnik().getUsername());
+        assertEquals("1234", korisniciModel.getTrenutniKorisnik().getLozinka());
+    }
+
+    @Test
+    void testNapuni1() {
+        KorisniciModel korisniciModel = new KorisniciModel();
+        korisniciModel.napuni();
+        korisniciModel.getTrenutniKorisnik();
 
         assertNull(korisniciModel.getTrenutniKorisnik());
 
         korisniciModel.napuni();
-
+        korisniciModel.getTrenutniKorisnik();
         assertNotNull(korisniciModel.getTrenutniKorisnik());
         assertEquals("", korisniciModel.getTrenutniKorisnik().getIme());
         assertEquals("", korisniciModel.getTrenutniKorisnik().getPrezime());
