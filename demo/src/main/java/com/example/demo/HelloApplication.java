@@ -15,7 +15,7 @@ public class HelloApplication extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
         fxmlLoader.setController(new HelloController(model));
         Scene scene = new Scene(fxmlLoader.load(), 398, 288);
-        stage.setTitle("Hello!");
+        stage.setTitle("Login forma");
         stage.setScene(scene);
         stage.setResizable(false); //ako hocu da se ne moze resize-ati prozor
         stage.show();
