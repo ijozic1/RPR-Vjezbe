@@ -22,16 +22,20 @@ public class Main {
         return ispis;
     }
     void glavniGrad(){
-        Scanner unos=new Scanner(System.in);
-        System.out.print("Unesite naziv drzave za koju trazite glavni grad: ");
-        String naziv=unos.nextLine();
-        Drzava d= dao.nadjiDrzavu(naziv);
-        Grad glavni=dao.glavniGrad(d.getNaziv());
-        if(glavni==null){
-            System.out.println("Nepostojeca drzava");
+        try {
+            Scanner unos = new Scanner(System.in);
+            System.out.print("Unesite naziv drzave za koju trazite glavni grad: ");
+            String naziv = unos.nextLine();
+            Drzava d = dao.nadjiDrzavu(naziv);
+            Grad glavni = dao.glavniGrad(d.getNaziv());
+            if (glavni == null) {
+                System.out.println("Nepostojeca drzava");
+            } else {
+                System.out.println("Glavni grad drzave " + naziv + " je " + glavni.getNaziv());
+            }
         }
-        else{
-            System.out.println("Glavni grad drzave "+naziv+" je "+glavni.getNaziv());
+        catch(NullPointerException e){
+            System.out.println("Nepostojeca drzava");
         }
     }
 
