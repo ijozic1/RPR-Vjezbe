@@ -1,14 +1,15 @@
 package rpr.etf.unsa.ba.lab9.z1;
 
 public class Grad {
-    private int id, broj_stanovnika;
+    private int id, broj_stanovnika, drzava;
     private String naziv;
 
     public Grad(){}
-    public Grad(int id, String naziv, int broj_stanovnika){
+    public Grad(int id, String naziv, int broj_stanovnika, int drzava){
         this.id=id;
         this.naziv=naziv;
         this.broj_stanovnika=broj_stanovnika;
+        this.drzava=drzava;
     }
 
     public int getId() {
@@ -33,5 +34,13 @@ public class Grad {
 
     public void setNaziv(String naziv) {
         this.naziv = naziv;
+    }
+
+    public int getDrzava() {
+        return drzava;
+    }
+
+    public void setDrzava(int drzava) {
+        this.drzava = drzava;
     }
 }
