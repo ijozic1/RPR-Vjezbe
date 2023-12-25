@@ -2,7 +2,7 @@ package rpr.etf.unsa.ba.lab9.z1;
 
 public class Drzava {
     private String naziv;
-    private int id, glavni_grad;
+    private Integer id, glavni_grad;
 
     public Drzava(){}
 

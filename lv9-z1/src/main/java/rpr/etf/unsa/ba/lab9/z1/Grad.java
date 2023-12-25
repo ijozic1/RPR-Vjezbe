@@ -1,7 +1,7 @@
 package rpr.etf.unsa.ba.lab9.z1;
 
 public class Grad {
-    private int id, broj_stanovnika, drzava;
+    private Integer id, broj_stanovnika, drzava;
     private String naziv;
 
     public Grad(){}
