@@ -2,14 +2,13 @@ package rpr.etf.unsa.ba.lab9.z1;
 
 public class Drzava {
     private String naziv;
-    private int id, glavniGrad;
+    private int id;
 
     public Drzava(){}
 
-    public Drzava(int id, String naziv, int glavniGrad){
+    public Drzava(int id, String naziv){
         this.id=id;
         this.naziv=naziv;
-        this.glavniGrad=glavniGrad;
     }
 
     public String getNaziv() {
@@ -26,13 +25,5 @@ public class Drzava {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public int getGlavniGrad() {
-        return glavniGrad;
-    }
-
-    public void setGlavniGrad(int glavniGrad) {
-        this.glavniGrad = glavniGrad;
     }
 }
