@@ -7,7 +7,8 @@ public class GeografijaDAO {
     private static GeografijaDAO instance=null;
     private Connection conn;
     private PreparedStatement dajGlavniGrad, dajDrzavu, dajBrojStanovnika, dajGradove, kreirajGrad, kreirajDrzavu, alterGrad, upitSviGradovi,
-                                obrisiDrzavu, obrisiGradoveDrzave, dodajGrad, dodajDrzavu, izmijeniGrad, dajMaxIdGrad, dajMaxIdDrzava;
+                                obrisiDrzavu, obrisiGradoveDrzave, dodajGrad, dodajDrzavu, izmijeniGrad, dajMaxIdGrad, dajMaxIdDrzava,
+                                dajNazivDrzave;
 
     private void stvoriBazu(){
         try{
@@ -92,6 +93,7 @@ public class GeografijaDAO {
             izmijeniGrad=conn.prepareStatement("update grad set naziv=?, broj_stanovnika=? where id=?:");
             dajMaxIdGrad=conn.prepareStatement("select max(id) from grad;");
             dajMaxIdDrzava=conn.prepareStatement("select max(id) from drzava;");
+            dajNazivDrzave=conn.prepareStatement("Select drzava.naziv from drzava, grad where drzava.id=?;");
         }
         catch(SQLException e){
             System.out.println(e.getMessage());
@@ -123,6 +125,9 @@ public class GeografijaDAO {
             while (result.next()) {
                 Grad grad = new Grad(result.getInt(1),result.getString(2),result.getInt(3),result.getInt(4));
                 gradovi.add(grad);
+                dajNazivDrzave.setInt(1,grad.getDrzava());
+                ResultSet result1=dajNazivDrzave.executeQuery();
+                grad.setImeDrzave(result1.getString(1));
             }
         }
         catch(SQLException e){

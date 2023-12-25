@@ -2,7 +2,7 @@ package rpr.etf.unsa.ba.lab9.z1;
 
 public class Grad {
     private Integer id, broj_stanovnika, drzava;
-    private String naziv;
+    private String naziv, imeDrzave;
 
     public Grad(){}
     public Grad(int id, String naziv, int broj_stanovnika, int drzava){
@@ -42,5 +42,13 @@ public class Grad {
 
     public void setDrzava(int drzava) {
         this.drzava = drzava;
+    }
+
+    public String getImeDrzave() {
+        return imeDrzave;
+    }
+
+    public void setImeDrzave(String imeDrzave) {
+        this.imeDrzave = imeDrzave;
     }
 }
