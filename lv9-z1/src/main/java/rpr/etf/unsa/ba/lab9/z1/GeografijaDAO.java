@@ -6,7 +6,8 @@ import java.util.ArrayList;
 public class GeografijaDAO {
     private static GeografijaDAO instance=null;
     private Connection conn;
-    private PreparedStatement dajGlavniGrad, dajDrzavu, dajBrojStanovnika, dajGradove, kreirajGrad, kreirajDrzavu, alterGrad, upitSviGradovi;
+    private PreparedStatement dajGlavniGrad, dajDrzavu, dajBrojStanovnika, dajGradove, kreirajGrad, kreirajDrzavu, alterGrad, upitSviGradovi,
+                                obrisiDrzavu, obrisiGradoveDrzave, dodajGrad, dodajDrzavu, izmijeniGrad, dajMaxIdGrad, dajMaxIdDrzava;
 
     private void stvoriBazu(){
         try{
@@ -72,9 +73,9 @@ public class GeografijaDAO {
             dajGlavniGrad=conn.prepareStatement("SELECT grad.naziv" +
                                                     "from grad, drzava" +
                                                     "where grad.id=drzava.glavni_grad and lower(drzava.naziv)=lower('?');");
-            dajDrzavu=conn.prepareStatement("SELECT drzava.naziv" +
-                                                "from grad, drzava" +
-                                                "where grad.drzava=drzava.id and lower(grad.naziv)=lower('?');");
+            dajDrzavu=conn.prepareStatement("SELECT drzava.id, drzava.naziv, drzava.glavni_grad" +
+                                                "from drzava" +
+                                                "where lower(drzava.naziv)=lower('?');");
             dajBrojStanovnika=conn.prepareStatement("Select grad.broj_stanovnika" +
                                                         "from grad" +
                                                         "where lower(grad.naziv)=lower('?');");
@@ -84,6 +85,13 @@ public class GeografijaDAO {
             kreirajDrzavu=conn.prepareStatement("create table grad(id number primary key, naziv varchar2, broj_stanovnika number);");
             kreirajGrad=conn.prepareStatement("create table drzava(id number primary key ,naziv varchar2,glavni_grad number references grad(id));");
             alterGrad=conn.prepareStatement("alter table grad add drzava number references drzava(id);");
+            obrisiDrzavu=conn.prepareStatement("delete from drzava where id=?;");
+            obrisiGradoveDrzave=conn.prepareStatement("delete from grad where grad.drzava=?;");
+            dodajGrad=conn.prepareStatement("nsert into grad (id, naziv, broj_stanovnika, drzava) values ((Select max(id) from grad)+1, ?, ?, ?);");
+            dodajDrzavu=conn.prepareStatement("insert into drzava (id, naziv, glavni_grad) values ((Select max(id) from drzava)+1, ?, ?);");
+            izmijeniGrad=conn.prepareStatement("update grad set naziv=?, broj_stanovnika=? where id=?:");
+            dajMaxIdGrad=conn.prepareStatement("select max(id) from grad;");
+            dajMaxIdDrzava=conn.prepareStatement("select max(id) from drzava;");
         }
         catch(SQLException e){
             System.out.println(e.getMessage());
@@ -121,5 +129,93 @@ public class GeografijaDAO {
             System.out.println(e.getMessage());
         }
         return gradovi;
+    }
+
+    Grad glavniGrad(String drzava){
+        try {
+            dajGlavniGrad.setString(1, drzava);
+            ResultSet result =dajGlavniGrad.executeQuery();
+            if(result.next()){
+                Grad grad = new Grad(result.getInt(1),result.getString(2),result.getInt(3),result.getInt(4));
+                return grad;
+            }
+            return null;
+        }
+        catch(SQLException e){
+            System.out.println(e.getMessage());
+        }
+        return null;
+    }
+
+    void ObrisiDrzavu(String drzava){
+        try{
+            dajDrzavu.setString(1,drzava);
+            ResultSet result =dajDrzavu.executeQuery();
+            if(result.next()){
+                Drzava drzavaZaBrisanje = new Drzava(result.getInt(1),result.getString(2),result.getInt(3));
+                obrisiGradoveDrzave.setInt(1,drzavaZaBrisanje.getId());
+                obrisiGradoveDrzave.executeUpdate();
+                obrisiDrzavu.setInt(1,drzavaZaBrisanje.getId());
+                obrisiDrzavu.executeUpdate();
+            }
+        }
+        catch(SQLException e){
+            System.out.println(e.getMessage());
+        }
+    }
+
+    void dodajGrad(Grad grad){
+        try{
+            ResultSet result=dajMaxIdGrad.executeQuery();
+            grad.setId(result.getInt(1)+1);
+            dodajGrad.setString(1,grad.getNaziv());
+            dodajGrad.setInt(2,grad.getBroj_stanovnika());
+            dodajGrad.setInt(3,grad.getDrzava());
+            dodajGrad.executeUpdate();
+        }
+        catch(SQLException e){
+            System.out.println(e.getMessage());
+        }
+    }
+
+    void dodajDrzavu(Drzava drzava) {
+        try {
+            ResultSet result = dajMaxIdDrzava.executeQuery();
+            drzava.setId(result.getInt(1) + 1);
+            dodajDrzavu.setString(1, drzava.getNaziv());
+            dodajDrzavu.setInt(2, drzava.getGlavni_grad());
+            dodajGrad.executeUpdate();
+        }
+        catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    void izmijeniGrad(Grad grad){
+        try{
+            izmijeniGrad.setString(1,grad.getNaziv());
+            izmijeniGrad.setInt(2,grad.getBroj_stanovnika());
+            izmijeniGrad.setInt(3, grad.getId());
+            izmijeniGrad.execute();
+        }
+        catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    Drzava nadjiDrzavu(String drzava){
+        try{
+            dajDrzavu.setString(1,drzava);
+            ResultSet result =dajDrzavu.executeQuery();
+            if(result.next()){
+                Drzava drzavaZaVracanje = new Drzava(result.getInt(1),result.getString(2),result.getInt(3));
+                return drzavaZaVracanje;
+            }
+            return null;
+        }
+        catch(SQLException e){
+            System.out.println(e.getMessage());
+        }
+        return null;
     }
 }
