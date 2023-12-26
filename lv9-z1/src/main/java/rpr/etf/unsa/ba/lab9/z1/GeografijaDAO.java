@@ -71,26 +71,36 @@ public class GeografijaDAO {
         try{
             conn= DriverManager.getConnection(url);
             provjeriKonekciju();
-            dajGlavniGrad=conn.prepareStatement("SELECT grad.naziv" +
-                                                    "from grad, drzava" +
+            dajGlavniGrad=conn.prepareStatement("SELECT grad.naziv " +
+                                                    "from grad, drzava " +
                                                     "where grad.id=drzava.glavni_grad and lower(drzava.naziv)=lower('?');");
-            dajDrzavu=conn.prepareStatement("SELECT drzava.id, drzava.naziv, drzava.glavni_grad" +
-                                                "from drzava" +
+            dajDrzavu=conn.prepareStatement("SELECT drzava.id, drzava.naziv, drzava.glavni_grad " +
+                                                "from drzava " +
                                                 "where lower(drzava.naziv)=lower('?');");
-            dajBrojStanovnika=conn.prepareStatement("Select grad.broj_stanovnika" +
-                                                        "from grad" +
+
+
+            dajBrojStanovnika=conn.prepareStatement("Select grad.broj_stanovnika " +
+                                                        "from grad " +
                                                         "where lower(grad.naziv)=lower('?');");
-            dajGradove=conn.prepareStatement("select id, naziv, broj_stanovnika, drzava"+
-                                                 "from grad" +
+
+            dajGradove=conn.prepareStatement("select id, naziv, broj_stanovnika, drzava "+
+                                                 "from grad " +
                                                  "order by broj_stanovnika desc;");
-            kreirajDrzavu=conn.prepareStatement("create table grad(id number primary key, naziv varchar2, broj_stanovnika number);");
-            kreirajGrad=conn.prepareStatement("create table drzava(id number primary key ,naziv varchar2,glavni_grad number references grad(id));");
-            alterGrad=conn.prepareStatement("alter table grad add drzava number references drzava(id);");
+
+            kreirajDrzavu=conn.prepareStatement("create table if not exists grad(id number primary key, naziv varchar2, broj_stanovnika number);");
+
+
+            kreirajGrad=conn.prepareStatement("create table if not exists drzava(id number primary key ,naziv varchar2,glavni_grad number references grad(id));");
+
+            //alterGrad=conn.prepareStatement("alter table grad add drzava number references drzava(id);");
+
             obrisiDrzavu=conn.prepareStatement("delete from drzava where id=?;");
             obrisiGradoveDrzave=conn.prepareStatement("delete from grad where grad.drzava=?;");
-            dodajGrad=conn.prepareStatement("nsert into grad (id, naziv, broj_stanovnika, drzava) values ((Select max(id) from grad)+1, ?, ?, ?);");
+            dodajGrad=conn.prepareStatement("insert into grad (id, naziv, broj_stanovnika, drzava) values ((Select max(id) from grad)+1, ?, ?, ?);");
+
             dodajDrzavu=conn.prepareStatement("insert into drzava (id, naziv, glavni_grad) values ((Select max(id) from drzava)+1, ?, ?);");
-            izmijeniGrad=conn.prepareStatement("update grad set naziv=?, broj_stanovnika=? where id=?:");
+            izmijeniGrad=conn.prepareStatement("update grad set naziv=?, broj_stanovnika=? where id=?;");
+            //System.out.println("radi");
             dajMaxIdGrad=conn.prepareStatement("select max(id) from grad;");
             dajMaxIdDrzava=conn.prepareStatement("select max(id) from drzava;");
             dajNazivDrzave=conn.prepareStatement("Select drzava.naziv from drzava, grad where drzava.id=?;");
@@ -127,7 +137,8 @@ public class GeografijaDAO {
                 gradovi.add(grad);
                 dajNazivDrzave.setInt(1,grad.getDrzava());
                 ResultSet result1=dajNazivDrzave.executeQuery();
-                grad.setImeDrzave(result1.getString(1));
+                if(result1.next())
+                    grad.setImeDrzave(result1.getString(1));
             }
         }
         catch(SQLException e){
