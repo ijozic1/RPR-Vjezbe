@@ -71,7 +71,7 @@ public class GeografijaDAO {
         try{
             conn= DriverManager.getConnection(url);
             provjeriKonekciju();
-            dajGlavniGrad=conn.prepareStatement("SELECT grad.naziv " +
+            dajGlavniGrad=conn.prepareStatement("SELECT grad.id, grad.naziv, grad.broj_stanovnika, grad.drzava " +
                                                     "from grad, drzava " +
                                                     "where grad.id=drzava.glavni_grad and lower(drzava.naziv)=lower('?');");
             dajDrzavu=conn.prepareStatement("SELECT drzava.id, drzava.naziv, drzava.glavni_grad " +
