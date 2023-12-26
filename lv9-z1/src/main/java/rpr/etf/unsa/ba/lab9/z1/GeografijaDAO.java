@@ -73,15 +73,13 @@ public class GeografijaDAO {
             provjeriKonekciju();
             dajGlavniGrad=conn.prepareStatement("SELECT grad.id, grad.naziv, grad.broj_stanovnika, grad.drzava " +
                                                     "from grad, drzava " +
-                                                    "where grad.id=drzava.glavni_grad and lower(drzava.naziv)=lower('?');");
-            dajDrzavu=conn.prepareStatement("SELECT drzava.id, drzava.naziv, drzava.glavni_grad " +
-                                                "from drzava " +
-                                                "where lower(drzava.naziv)=lower('?');");
+                                                    "where grad.id=drzava.glavni_grad and lower(drzava.naziv)=lower(?);");
+            dajDrzavu=conn.prepareStatement("SELECT drzava.id, drzava.naziv, drzava.glavni_grad from drzava where lower(drzava.naziv)=lower(?)");
 
 
             dajBrojStanovnika=conn.prepareStatement("Select grad.broj_stanovnika " +
                                                         "from grad " +
-                                                        "where lower(grad.naziv)=lower('?');");
+                                                        "where lower(grad.naziv)=lower(?);");
 
             dajGradove=conn.prepareStatement("select id, naziv, broj_stanovnika, drzava "+
                                                  "from grad " +
@@ -152,8 +150,7 @@ public class GeografijaDAO {
             dajGlavniGrad.setString(1, drzava);
             ResultSet result =dajGlavniGrad.executeQuery();
             if(result.next()){
-                Grad grad = new Grad(result.getInt(1),result.getString(2),result.getInt(3),result.getInt(4));
-                return grad;
+                return new Grad(result.getInt(1),result.getString(2),result.getInt(3),result.getInt(4));
             }
             return null;
         }
@@ -221,11 +218,10 @@ public class GeografijaDAO {
 
     Drzava nadjiDrzavu(String drzava){
         try{
-            dajDrzavu.setString(1,drzava);
+            dajDrzavu.setString(1, drzava);
             ResultSet result =dajDrzavu.executeQuery();
             if(result.next()){
-                Drzava drzavaZaVracanje = new Drzava(result.getInt(1),result.getString(2),result.getInt(3));
-                return drzavaZaVracanje;
+                return new Drzava(result.getInt(1),result.getString(2),result.getInt(3));
             }
             return null;
         }

@@ -26,6 +26,7 @@ public class Main {
             Scanner unos = new Scanner(System.in);
             System.out.println("Unesite naziv drzave za koju trazite glavni grad: ");
             String naziv = unos.nextLine();
+            //System.out.println("\nUnio si: " + naziv + "\n");
             Drzava d = dao.nadjiDrzavu(naziv);
             Grad glavni = dao.glavniGrad(d.getNaziv());
             if (glavni == null) {
